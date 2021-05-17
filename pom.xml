@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com</groupId>
-	<artifactId>simios</artifactId>
+	<artifactId>simian</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>simios</name>
+	<name>simian</name>
 	<description>Teste Símios - Mercado Livre</description>
 	<properties>
 		<java.version>11</java.version>

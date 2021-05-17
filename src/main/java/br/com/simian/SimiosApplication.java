@@ -1,4 +1,4 @@
-package br.com.simios;
+package br.com.simian;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
