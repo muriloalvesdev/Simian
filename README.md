@@ -68,3 +68,10 @@ Caso você queira apenas baixar a imagem e executar a aplicação, basta seguir 
 - Baixe a imagem Docker, utilizando o comando: `$ docker pull muriloalvesdev/simian`
 - Execute o comando `$ docker run <id_imagem>` para executar o container.
 - E agora você ja deve ter a aplicação sendo executada.
+
+## Hospedagem da aplicação
+Aplicação hospedada no Heroku, você pode realizar os request através desta url base: https://melibr-simian.herokuapp.com/
+```
+Lembrando que o primeiro request sempre será mais lento no Heroku, pois quando a aplicação fica sem receber nenhuma requisição 
+(dentro de 30 min deste o ultimo request ou deploy) a aplicação é derrubada, pois o plano utilizado para esta hospedagem é FREE.
+```
