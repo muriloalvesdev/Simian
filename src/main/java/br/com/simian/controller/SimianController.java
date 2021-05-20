@@ -14,12 +14,12 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
-@RequestMapping("simian")
+@RequestMapping(SimianController.PATH)
 @RestController
 class SimianController {
 
 	private final Handler handler;
-
+	static final String PATH = "/simian";
 	@PostMapping
 	public ResponseEntity<Object> isSimian(@RequestBody DNA dna) {
 		this.handler.validate(dna.getDna());
