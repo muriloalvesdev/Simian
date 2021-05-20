@@ -1,7 +1,6 @@
 package br.com.simian.controller.handler;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -35,9 +34,6 @@ public class Handler {
 	}
 
 	private static boolean isValid(String dna) {
-		System.out.println("value: ".concat(dna).concat(" - regex repeating: ").concat(
-				String.valueOf(dna.chars().boxed().collect(Collectors.groupingBy(value -> value, Collectors.counting()))
-						.values().stream().anyMatch(value -> value > 3))));
 		if (!dna.contains("A") && !dna.contains("T") && !dna.contains("C") && !dna.contains("G")) {
 			return false;
 		}
