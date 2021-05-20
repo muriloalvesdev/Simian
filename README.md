@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/muriloalvesdev/Simian.svg?token=ioemJXEZtsUqgszw2Nq4&branch=main)](https://travis-ci.com/muriloalvesdev/simian)
+
 ## Simian
 
 ## License
