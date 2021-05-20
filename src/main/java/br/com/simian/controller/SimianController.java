@@ -20,13 +20,14 @@ class SimianController {
 
 	private final Handler handler;
 	static final String PATH = "/simian";
+
 	@PostMapping
 	public ResponseEntity<Object> isSimian(@RequestBody DNA dna) {
 		this.handler.validate(dna.getDna());
 		return ResponseEntity.ok().build();
 	}
 
-	@GetMapping
+	@GetMapping("/stats")
 	public ResponseEntity<Statistic> statistic() {
 		return ResponseEntity.ok(this.handler.statistic());
 	}

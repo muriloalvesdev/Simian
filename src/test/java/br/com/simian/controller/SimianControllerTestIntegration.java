@@ -56,7 +56,7 @@ class SimianControllerTestIntegration {
 	@Order(3)
 	@Test
 	void shouldValidateStatisticAndExpectedStatusOk() throws Exception {
-		this.mockMvc.perform(get(SimianController.PATH).contentType(MediaType.APPLICATION_JSON_VALUE))
+		this.mockMvc.perform(get(SimianController.PATH.concat("/stats")).contentType(MediaType.APPLICATION_JSON_VALUE))
 				.andExpect(status().isOk()).andExpect(jsonPath("$.count_mutant_dna", is(1)))
 				.andExpect(jsonPath("$.count_human_dna", is(1))).andExpect(jsonPath("$.ratio", is(1.0)));
 	}
