@@ -45,11 +45,12 @@ class SimianControllerTestIntegration {
 
 	@Order(2)
 	@Test
-	void shouldExpectedStatusForbidden() throws Exception {
+	void shouldExpectedStatusForbiddenAndExecuteHandlerExceptionDNANotSimianException() throws Exception {
 		String json = "{\n" + "\"dna\":  [\"ATGCGA\", \n" + "         \"CTGTAC\", \n" + "         \"TTAGCT\", \n"
 				+ "         \"AGATGG\", \n" + "         \"CGCCTA\", \n" + "         \"TCACTG\"]\n" + "}";
 		this.mockMvc.perform(post(SimianController.PATH).contentType(MediaType.APPLICATION_JSON_VALUE).content(json))
-				.andExpect(status().isForbidden());
+				.andExpect(status().isForbidden()).andExpect(jsonPath("$.message", is("Not recognized as simian.")))
+				.andExpect(jsonPath("$.status", is(403)));
 	}
 
 	@Order(3)
@@ -58,6 +59,18 @@ class SimianControllerTestIntegration {
 		this.mockMvc.perform(get(SimianController.PATH).contentType(MediaType.APPLICATION_JSON_VALUE))
 				.andExpect(status().isOk()).andExpect(jsonPath("$.count_mutant_dna", is(1)))
 				.andExpect(jsonPath("$.count_human_dna", is(1))).andExpect(jsonPath("$.ratio", is(1.0)));
+	}
+
+	@Order(4)
+	@Test
+	void shouldExpectedExecuteHandlerExceptionWithDNAInvalidException() throws Exception {
+		String json = "{\n" + "\"dna\":  [\"FFFFFF\", \n" + "         \"CTGTAC\", \n" + "         \"TTAGCT\", \n"
+				+ "         \"AGATGG\", \n" + "         \"CGCCTA\", \n" + "         \"TCACTG\"]\n" + "}";
+		this.mockMvc.perform(post(SimianController.PATH).contentType(MediaType.APPLICATION_JSON_VALUE).content(json))
+				.andExpect(status().isForbidden())
+				.andExpect(jsonPath("$.message", is(
+						"DNA must contain the following letters: A, T, C, G - Check that all letters are being entered.")))
+				.andExpect(jsonPath("$.status", is(403)));
 	}
 
 }
