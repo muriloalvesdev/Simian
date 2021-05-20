@@ -19,7 +19,6 @@ import lombok.AllArgsConstructor;
 class SimianController {
 
 	private final Handler handler;
-	static final String NOT_SIMIAN = "";
 
 	@PostMapping
 	public ResponseEntity<Object> isSimian(@RequestBody DNA dna) {
