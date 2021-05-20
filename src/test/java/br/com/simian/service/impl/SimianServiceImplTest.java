@@ -40,10 +40,10 @@ class SimianServiceImplTest {
 		// given
 		BDDMockito.given(this.repository.findByDna(dnaSimian.getDna())).willReturn(Optional.of(dnaSimian));
 
-		// then
+		// when
 		boolean isSimian = this.service.isSimian(dnaSimian.getDna());
 
-		// when
+		// then
 		verify(this.repository, times(1)).findByDna(dnaSimian.getDna());
 		assertTrue(isSimian);
 	}
@@ -55,10 +55,10 @@ class SimianServiceImplTest {
 		BDDMockito.given(this.repository.findByDna(dnaSimian.getDna())).willReturn(Optional.empty());
 		BDDMockito.given(this.repository.save(dnaSimian)).willReturn(dnaSimian);
 		
-		// then
+		// when
 		boolean isSimian = this.service.isSimian(dnaSimian.getDna());
 
-		// when
+		// then
 		verify(this.repository, times(1)).findByDna(Mockito.any());
 		verify(this.repository, times(1)).save(Mockito.any());
 
