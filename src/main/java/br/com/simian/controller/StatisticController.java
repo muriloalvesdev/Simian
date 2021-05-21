@@ -16,9 +16,9 @@ import lombok.AllArgsConstructor;
 class StatisticController {
 
 	private final Handler handler;
-	static final String PATH = "/simian";
+	static final String PATH = "/stats";
 
-	@GetMapping("/stats")
+	@GetMapping
 	public ResponseEntity<Statistic> statistic() {
 		return ResponseEntity.ok(this.handler.statistic());
 	}
