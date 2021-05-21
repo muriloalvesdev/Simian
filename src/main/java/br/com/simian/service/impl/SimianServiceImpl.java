@@ -34,7 +34,7 @@ class SimianServiceImpl implements SimianService {
 		if (countHuman < countSimian) {
 			statistic.setRatio(Double.valueOf((double) countHuman / (double) countSimian));
 		} else {
-			statistic.setRatio(Double.valueOf(countSimian / countHuman));
+			statistic.setRatio(Double.valueOf((double) countSimian / (double) countHuman));
 		}
 		statistic.setCountHumanDna(countHuman);
 		statistic.setCountMutantDna(countSimian);
