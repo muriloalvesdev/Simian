@@ -1,7 +1,6 @@
 package br.com.simian.controller;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -54,14 +53,6 @@ class SimianControllerTestIntegration {
 	}
 
 	@Order(3)
-	@Test
-	void shouldValidateStatisticAndExpectedStatusOk() throws Exception {
-		this.mockMvc.perform(get(SimianController.PATH.concat("/stats")).contentType(MediaType.APPLICATION_JSON_VALUE))
-				.andExpect(status().isOk()).andExpect(jsonPath("$.count_mutant_dna", is(1)))
-				.andExpect(jsonPath("$.count_human_dna", is(1))).andExpect(jsonPath("$.ratio", is(1.0)));
-	}
-
-	@Order(4)
 	@Test
 	void shouldExpectedExecuteHandlerExceptionWithDNAInvalidException() throws Exception {
 		String json = "{\n" + "\"dna\":  [\"FFFFFF\", \n" + "         \"CTGTAC\", \n" + "         \"TTAGCT\", \n"
