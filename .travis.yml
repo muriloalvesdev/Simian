@@ -10,3 +10,10 @@ install: true
 script:
   - chmod +x ./.ci/script.sh 
   - ./.ci/script.sh
+
+env:
+ global:
+   - CODECOV_TOKEN="2ed0d7b4-d0a9-42de-859a-eba56cdf32a8"
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
