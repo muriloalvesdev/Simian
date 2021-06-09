@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/muriloalvesdev/Simian.svg?token=ioemJXEZtsUqgszw2Nq4&branch=main)](https://travis-ci.com/muriloalvesdev/simian)
+[![codecov](https://codecov.io/gh/muriloalvesdev/Simian/branch/main/graph/badge.svg?token=9BOGVW2OBM)](https://codecov.io/gh/muriloalvesdev/Simian)
 
 ## Simian
 
